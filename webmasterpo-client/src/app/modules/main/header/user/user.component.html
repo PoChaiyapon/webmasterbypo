@@ -1,0 +1,42 @@
+<app-dropdown class="user-menu">
+  <ng-container dropdown-button>
+    <img [src]="user.picture || 'assets/img/default-profile.png'" class="user-image img-circle elevation-2"
+      alt="User Image" />
+  </ng-container>
+  
+  <ng-container dropdown-menu>
+    <li class="user-header bg-primary">
+      <img [src]="user.picture || 'assets/img/default-profile.png'" class="img-circle elevation-2" alt="User Image" />
+  
+      <p>
+        <span>{{ user.FirstName }} {{ user.LastName }}</span>
+        <small>
+          <span>Birth Date </span>
+          <span>{{ formatDate(user.BirthDate) }}</span>
+        </small>
+      </p>
+    </li>
+    <!-- Menu Body -->
+    <li class="user-body">
+      <div class="row">
+        <div class="col-4 text-center">
+          <a [routerLink]="['/']">Followers</a>
+        </div>
+        <div class="col-4 text-center">
+          <a [routerLink]="['/']">Sales</a>
+        </div>
+        <div class="col-4 text-center">
+          <a [routerLink]="['/']">Friends</a>
+        </div>
+      </div>
+      <!-- /.row -->
+    </li>
+    <!-- Menu Footer-->
+    <li class="user-footer">
+      <a [routerLink]="['/profile']" class="btn btn-default btn-flat">
+        Profile
+      </a>
+      <a (click)="logout()" class="btn btn-default btn-flat float-right">Sign out</a>
+    </li>
+  </ng-container>
+</app-dropdown>
